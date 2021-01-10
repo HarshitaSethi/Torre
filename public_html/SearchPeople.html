@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Torre</title>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/home.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    </head>
+    <body ng-app="homePage" ng-controller="HomeController">
+        <div class="page-wrapper dark-theme toggled"  id="main-wrapper">
+            <div includeHtml="templates/navbar.html"></div>
+            <!--<div class="parallax">-->
+            <div class="parallax d-flex flex-column justify-content-center align-items-center">
+                <h1 class="caption">Torre</h1>
+                <h2 class="text-blue">The new professional network for remote and flexible work</h2>
+            </div> 
+            <main class="page-content">
+                <div class="container-fluid">
+                    <!--<section>-->
+                    <!--<h2>What's in it for <strong class="text-uppercase">Job Seekers</strong></h2>-->
+                    <h2 class="text-uppercase">Job Seekers</h2>
+                    <p>Can find followers, candidates, jobs, gigs, internships, and more</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 column column" ng-repeat="opportunities in opportunityAggregate">
+                            <div class="{{'card gr-' + ($index + 1)}}">
+                                <div class="txt">
+                                    <h1>{{opportunities.typeCount}}</br>
+                                        {{opportunities.aggregate}}</h1>
+                                    <p>{{opportunities.jobCount + " Jobs"}}</p>
+                                </div>
+                                <a href="#">more</a>
+                                <div class="ico-card">
+                                    <i class="fa fa-briefcase"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--</section>-->
+                    <!--<section>-->
+                    <!--<div class="parallax2"></div>-->
+                    <!--</section>-->
+                    <!--<section>-->
+                    <h2 class="text-uppercase mt-5">Recruiters</h2>
+                    <!--<h2>What's in it for <strong class="text-uppercase">Recruiters</strong></h2>-->
+                    <p>Can post a job or search for remote candidates</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 column column" ng-repeat="people in peopleAggregate">
+                            <div class="{{'card gr-' + ($index + 1)}}">
+                                <div class="txt">
+                                    <h1>{{people.typeCount}}</br>
+                                        {{people.aggregate}}</h1>
+                                    <p>{{people.jobCount + " People"}}</p>
+                                </div>
+                                <a href="#">more</a>
+                                <div class="ico-card">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--</section>-->
+                </div>
+                <hr>
+                <div includeHtml="templates/footer.html"></div>
+                <div class="loader"></div>
+            </main>
+            <!-- page-content" -->
+        </div>
+        <!-- page-wrapper -->
+        <script src="js/includeTemplate.js"></script>
+        <script src="js/home.js"></script>
+    </body>
+</html>
